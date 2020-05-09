@@ -1,10 +1,11 @@
 #!/bin/bash
 
 start(){
-echo -e "\n\e[00;31m=========================================================\e[00m"
-echo -e "\e[00;31m=\e[00m" "\e[00;33mLocal Linux Enumeration Script\e[00m" "\e[00;31m\e[00m"
-echo -e "\e[00;31m===========================================================\e[00m"
+echo -e "\n\e[00;31m========================================================\e[00m"
+echo -e "\e[00;31m=\e[00m" "\e[00;33mRunning Linux Enumeration Script\e[00m" "\e[00;31m\e[00m"
+echo -e "\e[00;31m========================================================\e[00m"
 }
+
 
 end(){
 echo -e "\e[00;33m[+] Enumeration Complete =======================================\e[00m" 
@@ -13,7 +14,7 @@ echo -e "\e[00;33m[+] Enumeration Complete =====================================
 #Script core
 
 system_info() {
-  echo -e "\e[00;33m[+] SYSTEM =============================================\e[00m"
+  echo -e "\e[00;33m[+] SYSTEM =======================================\e[00m"
 
   #basic kernel info
   unameinfo=$(uname -a 2>/dev/null)
@@ -46,7 +47,7 @@ system_info() {
 
 user_info() {
 
-echo -e "\e[00;33m[+] USER/GROUP INFO ============================================\e[00m" 
+echo -e "\e[00;33m[+] USER/GROUP INFO =======================================\e[00m" 
 
 #current user details
 currusr=$(id 2>/dev/null)
@@ -171,7 +172,7 @@ fi
 
 environ_info(){
 
-echo -e "\e[00;33m[+] ENVIRONMENTAL =========================================\e[00m" 
+echo -e "\e[00;33m[+] ENVIRONMENTAL =======================================\e[00m" 
 
 #env information
 envinfo=$(env 2>/dev/null | grep -v 'LS_COLORS' 2>/dev/null)
@@ -227,7 +228,7 @@ fi
 
 networking_info(){
 
-echo -e "\e[00;33m[+] NETWORKING  ==============================================\e[00m" 
+echo -e "\e[00;33m[+] NETWORKING  =======================================\e[00m" 
 
 #network interface card information
 nicinfo=$(/sbin/ifconfig -a 2>/dev/null)
@@ -399,6 +400,8 @@ fi
 
 interesting_files(){
 
+echo -e "\e[00;33m[+] INTERESTING FILES =======================================\e[00m" 
+
 #look for private keys 
 privatekeyfiles=$(grep -rl "PRIVATE KEY-----" /home 2>/dev/null)
 if [ "$privatekeyfiles" ]; then
@@ -435,7 +438,6 @@ if [ "$phppass" ]; then
                 echo -e "\n"
 fi
 }
-
 
 main (){
         start
