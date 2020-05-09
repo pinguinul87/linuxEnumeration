@@ -1,11 +1,15 @@
 #!/bin/bash
+: '
+Script that enumerates system information, application version, files, environment variables, networking and private keys.
+This script is used on locally on the target.
+Post exploitaion.
+' 
 
 start(){
-echo -e "\n\e[00;31m=====================================\e[00m"
+echo -e "\n\e[00;31m====================================\e[00m"
 echo -e "\e[00;31m=\e[00m" "\e[00;33mRunning Linux Enumeration Script\e[00m" "\e[00;31m=\e[00m"
 echo -e "\e[00;31m====================================\e[00m"
 }
-
 
 end(){
 echo -e "\e[00;33m[+] Enumeration Complete =======================================\e[00m" 
