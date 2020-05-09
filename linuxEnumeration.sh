@@ -169,7 +169,7 @@ fi
 }
 
 
-environmental_info(){
+environ_info(){
 
 echo -e "\e[00;33m[+] ENVIRONMENTAL =========================================\e[00m" 
 
@@ -227,7 +227,7 @@ fi
 
 networking_info(){
 
-echo -e "\e[00;33m### NETWORKING  ##########################################\e[00m" 
+echo -e "\e[00;33m[+] NETWORKING  ==============================================\e[00m" 
 
 #network interface card information
 nicinfo=$(/sbin/ifconfig -a 2>/dev/null)
@@ -427,6 +427,7 @@ if [ "$wwfiles" ]; then
                 echo -e "\e[00;31m[-] World-writable files (excluding /proc and /sys):\e[00m\n$wwfiles" 
                 echo -e "\n"
 fi
+
 #search for the word passowrd in all php files
 phppass=$(find / -maxdepth 5 -name *.php -type f -exec grep -Hn password {} \; 2>/dev/null)
 if [ "$phppass" ]; then
@@ -434,6 +435,19 @@ if [ "$phppass" ]; then
                 echo -e "\n"
 fi
 }
+
+
+main (){
+        start
+        system_info
+        user_info
+        environ_info
+        networking_info
+        software_configs
+        interesting_files
+        end
+}
+main
 
 
 
