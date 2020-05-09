@@ -2,12 +2,12 @@
 
 start(){
 echo -e "\n\e[00;31m=========================================================\e[00m"
-echo -e "\e[00;31m=\e[00m" "\e[00;33mLocal Linux Enumeration Script\e[00m" "\e[00;31m#\e[00m"
-echo -e "\e[00;31m==========================================================\e[00m"
+echo -e "\e[00;31m=\e[00m" "\e[00;33mLocal Linux Enumeration Script\e[00m" "\e[00;31m\e[00m"
+echo -e "\e[00;31m===========================================================\e[00m"
 }
 
 end(){
-echo -e "\e[00;33m[+] Enumeration Complete ======================================\e[00m" 
+echo -e "\e[00;33m[+] Enumeration Complete =======================================\e[00m" 
 }
 
 #Script core
