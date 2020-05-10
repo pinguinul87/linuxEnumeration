@@ -47,6 +47,14 @@ system_info() {
                 echo -e "\e[00;31m[-] Hostname:\e[00m\n$hostname"
                 echo -e "\n"
   fi
+  
+  #top 20 running processes sorted by CPU usage
+  top20=$(ps -eo ppid,pid,cmd,user,%mem,%cpu --sort=-%cpu | head -n 20)
+  if [ "$top20" ]; then
+                echo -e "\e[00;31m[-] Top 20 processes sorted by CPU usage:\e[00m\n$top20"
+                echo -e "\n"
+  fi
+  
 }
 
 user_info() {
@@ -443,7 +451,7 @@ if [ "$phppass" ]; then
 fi
 }
 
-main (){
+main(){
         start
         system_info
         user_info
